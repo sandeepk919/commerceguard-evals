@@ -1,0 +1,7 @@
+__pycache__/
+*.py[cod]
+.venv/
+results.json
+baseline-results.json
+faulty-results.json
+.pytest_cache/

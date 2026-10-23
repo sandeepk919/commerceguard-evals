@@ -1,0 +1,6 @@
+[
+  {"id":"returning_customer","description":"Low-risk returning customer","expected_action":"APPROVE","signals":{"device_reputation":{"risk_points":0},"identity_risk":{"risk_points":0},"network_risk":{"risk_points":0},"behavioral_risk":{"risk_points":0},"transaction_history":{"risk_points":5}}},
+  {"id":"account_takeover","description":"Suspicious device and login anomalies","expected_action":"BLOCK","signals":{"device_reputation":{"risk_points":55},"identity_risk":{"risk_points":20},"network_risk":{"risk_points":10},"behavioral_risk":{"risk_points":5},"transaction_history":{"risk_points":0}}},
+  {"id":"new_legitimate_device","description":"New device but otherwise benign","expected_action":"APPROVE","signals":{"device_reputation":{"risk_points":10},"identity_risk":{"risk_points":0},"network_risk":{"risk_points":0},"behavioral_risk":{"risk_points":0},"transaction_history":{"risk_points":0}}},
+  {"id":"borderline_transaction","description":"Signals warrant challenge","expected_action":"CHALLENGE","signals":{"device_reputation":{"risk_points":15},"identity_risk":{"risk_points":10},"network_risk":{"risk_points":5},"behavioral_risk":{"risk_points":5},"transaction_history":{"risk_points":0}}}
+]

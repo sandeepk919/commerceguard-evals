@@ -1,0 +1,20 @@
+name: Agent Evals CI
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Unit tests
+        run: python -m unittest discover -s tests -v
+      - name: Baseline evaluation gate
+        run: python -m commerceguard.cli --output baseline-results.json
+      - name: Upload evaluation traces
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eval-traces
+          path: baseline-results.json
